@@ -36,9 +36,14 @@ jobs:
       - run:
           name: "Install homebrew"
           command: |
+            if [ ! -d "homebrew/Library/Taps" ] ; then
             eval "$(homebrew/bin/brew shellenv)"
             brew update --force --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
+            else
+             echo Using cached homebrew taps
+            fi
+
       - save_cache:
           key: my-cache
           paths:
