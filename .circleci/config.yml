@@ -69,6 +69,7 @@ jobs:
           user: mattruzzi 
           repository: bottle-release-test 
           tag: zlib-test-1 
+          target: master
           title: zlib 
           description: zlib 
           file-path: "*bottle*"
