@@ -61,11 +61,10 @@ jobs:
             eval "$(homebrew/bin/brew shellenv)"
             brew install zlib --build-bottle
             brew bottle zlib
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+            mkdir /tmp/bottles
+            cp *bottle* /tmp/bottles
       - store_artifacts: 
-          path: "**bottle**"
+          path: /tmp/bottles
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
