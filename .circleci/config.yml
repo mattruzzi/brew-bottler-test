@@ -26,6 +26,8 @@ jobs:
           command: |
             if [ ! -d "homebrew" ] ; then
              git clone https://github.com/Homebrew/brew homebrew
+            else
+             echo Using cached homebrew
             fi
       - save_cache:
           key: my-cache
@@ -42,7 +44,7 @@ jobs:
           paths:
             - homebrew
       - run:
-          name: "Install homebrew"
+          name: "Update homebrew"
           command: |
             eval "$(homebrew/bin/brew shellenv)"
             brew update --force --quiet || true
