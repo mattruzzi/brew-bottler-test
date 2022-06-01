@@ -56,6 +56,11 @@ jobs:
             brew update --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
+          name: "Bottle zlib"
+          command: |
+            brew install zlib --build-bottle
+            brew bottle zlib
+      - run:
           name: "Say hello"
           command: "echo Hello, World!"
 
