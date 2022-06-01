@@ -37,6 +37,16 @@ jobs:
             eval "$(homebrew/bin/brew shellenv)"
             brew update --force --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
+      - save_cache:
+          key: my-cache
+          paths:
+            - homebrew
+      - run:
+          name: "Install homebrew"
+          command: |
+            eval "$(homebrew/bin/brew shellenv)"
+            brew update --force --quiet || true
+            # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
