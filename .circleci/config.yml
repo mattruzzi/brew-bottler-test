@@ -18,6 +18,8 @@ jobs:
       - run:
           name: "Install homebrew"
           command: |
+            sudo apt install rbenv
+            rbenv install 2.6.8
             git clone https://github.com/Homebrew/brew homebrew
             eval "$(homebrew/bin/brew shellenv)"
             brew update --force --quiet
