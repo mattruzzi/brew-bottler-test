@@ -16,13 +16,26 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Install ruby"
+          command: "sudo snap install ruby --channel=2.6/stable --classic"
+      - restore_cache:
+          keys: 
+            - my-cache
+      - run:
+          name: "Clone homebrew"
+          command: |
+            if [ ! -d "homebrew" ] ; then
+             git clone https://github.com/Homebrew/brew homebrew
+            fi
+      - save_cache:
+          key: my-cache
+          paths:
+            - homebrew
+      - run:
           name: "Install homebrew"
           command: |
-            sudo snap install ruby --channel=2.6/stable --classic
-            git clone https://github.com/Homebrew/brew homebrew
             eval "$(homebrew/bin/brew shellenv)"
             brew update --force --quiet
-            brew doctor
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
           name: "Say hello"
