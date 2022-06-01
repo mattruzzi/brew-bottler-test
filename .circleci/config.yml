@@ -20,7 +20,8 @@ jobs:
           command: "sudo snap install ruby --channel=2.6/stable --classic"
       - restore_cache:
           keys: 
-            - my-cache
+            - homebrew-with-taps
+            - homebrew-repo
       - run:
           name: "Clone homebrew"
           command: |
@@ -30,7 +31,7 @@ jobs:
              echo Using cached homebrew
             fi
       - save_cache:
-          key: my-cache
+          key: homebrew-repo
           paths:
             - homebrew
       - run:
@@ -45,7 +46,7 @@ jobs:
             fi
 
       - save_cache:
-          key: my-cache
+          key: homebrew-with-taps
           paths:
             - homebrew
       - run:
