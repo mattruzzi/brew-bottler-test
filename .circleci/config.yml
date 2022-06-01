@@ -47,7 +47,7 @@ jobs:
           name: "Update homebrew"
           command: |
             eval "$(homebrew/bin/brew shellenv)"
-            brew update --force --quiet || true
+            brew update --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
           name: "Say hello"
