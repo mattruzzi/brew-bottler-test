@@ -66,14 +66,14 @@ jobs:
       - store_artifacts: 
           path: /tmp/bottles
       - github-release/create:
-          user: mattruzzi 
-          repository: bottle-release-test 
-          tag: zlib-test-1 
+          user: mattruzzi
+          repository: bottle-release-test
+          tag: zlib-test-1
           target: master
-          title: zlib 
-          description: zlib 
+          title: zlib
+          description: zlib
           file-path: "*bottle*"
-          draft: true 
+          draft: true
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
