@@ -67,6 +67,7 @@ jobs:
           path: /tmp/bottles
       - go/install:
           cache: true 
+          version: '1.18.3'
       - run:
           name: "Release"
           command: |
