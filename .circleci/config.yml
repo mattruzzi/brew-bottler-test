@@ -60,7 +60,7 @@ jobs:
             brew update --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
-          name: "Bottle zlib"
+          name: "Bottle << pipeline.parameters.formula >>"
           command: |
             eval "$(homebrew/bin/brew shellenv)"
             brew install << pipeline.parameters.formula >> --build-bottle
