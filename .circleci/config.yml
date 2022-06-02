@@ -65,6 +65,13 @@ jobs:
             cp *bottle* /tmp/bottles
       - store_artifacts: 
           path: /tmp/bottles
+      - go/install:
+          cache: true 
+      - run:
+          name: "Release"
+          command: |
+            go install github.com/tcnksm/ghr@latest
+            go/bin/ghr   --token $GITHUB_TOKEN   --username mattruzzi   --repository bottle-release-test   --commitish master   --name "gpatch"   --body "gpatch"  v0.0.0-test *bottle*
       - github-release/create:
           user: mattruzzi
           repository: bottle-release-test
@@ -85,3 +92,4 @@ workflows:
 
 orbs:
   github-release: h-matsuo/github-release@0.1.3
+  go: circleci/go@1.7.1
