@@ -68,6 +68,7 @@ jobs:
       - run:
           name: "Release"
           command: |
+            eval "$(homebrew/bin/brew shellenv)"
             brew install ghr
             ghr   --token $GITHUB_TOKEN   --username mattruzzi   --repository bottle-release-test   --commitish master   --name "gpatch"   --body "gpatch"  v0.0.0-test *bottle*
       - github-release/create:
