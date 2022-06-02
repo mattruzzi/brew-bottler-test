@@ -87,7 +87,7 @@ jobs:
             eval "$(homebrew/bin/brew shellenv)"
             git clone https://github.com/mattruzzi/bottle-release-test
             cd bottle-release-test
-            ghr --token $GITHUB_TOKEN v0.0.0-<< pipeline.parameters.formula >>-$(brew info << pipeline.parameters.formula >> --json | jq '.[0].versions.stable') /tmp/bottles/
+            ghr --token $GITHUB_TOKEN v0.0.0-<< pipeline.parameters.formula >>-$(brew info << pipeline.parameters.formula >> --json | jq -r '.[0].versions.stable') /tmp/bottles/
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
