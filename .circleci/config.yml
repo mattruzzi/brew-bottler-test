@@ -65,12 +65,10 @@ jobs:
             cp *bottle* /tmp/bottles
       - store_artifacts: 
           path: /tmp/bottles
-      - go/install:
-          cache: true 
-          version: '1.18.3'
       - run:
           name: "Release"
           command: |
+            brew install ghr
             go install github.com/tcnksm/ghr@latest
             go/bin/ghr   --token $GITHUB_TOKEN   --username mattruzzi   --repository bottle-release-test   --commitish master   --name "gpatch"   --body "gpatch"  v0.0.0-test *bottle*
       - github-release/create:
