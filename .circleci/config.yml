@@ -67,6 +67,11 @@ jobs:
             export HOMEBREW_GITHUB_PACKAGES_USER=mattruzzi
             brew pr-upload --root-url https://ghcr.io/v2/mattruzzi/core
       - run:
+          name: "Install spokeo"
+          command: |
+            curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
+            whalebrew install quay.io/skopeo/stable:latest
+      - run:
           name: "Bottle << pipeline.parameters.formula >>"
           command: |
             eval "$(homebrew/bin/brew shellenv)"
@@ -88,11 +93,6 @@ jobs:
           key: homebrew-with-ghr
           paths:
             - homebrew
-      - run:
-          name: "Install spokeo"
-          command: |
-            curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
-            whalebrew install quay.io/skopeo/stable:latest
       - run:
           name: "Release"
           command: |
