@@ -89,6 +89,11 @@ jobs:
           paths:
             - homebrew
       - run:
+          name: "Install spokeo"
+          command: |
+            curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
+            whalebrew install quay.io/skopeo/stable:latest
+      - run:
           name: "Release"
           command: |
             eval "$(homebrew/bin/brew shellenv)"
