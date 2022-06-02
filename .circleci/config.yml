@@ -73,8 +73,8 @@ jobs:
           title: zlib
           description: zlib
           file-path: "*bottle*"
-          draft: true
-          pre-release: false
+          draft: true 
+          pre-release: false 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
