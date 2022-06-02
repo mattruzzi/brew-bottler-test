@@ -65,6 +65,18 @@ jobs:
             cp *bottle* /tmp/bottles
       - store_artifacts: 
           path: /tmp/bottles
+      - restore_cache:
+          keys: 
+            - homebrew-with-ghr
+      - run:
+          name: "Install ghr"
+          command: |
+            eval "$(homebrew/bin/brew shellenv)"
+            brew install ghr
+      - save_cache:
+          key: homebrew-with-ghr
+          paths:
+            - homebrew
       - run:
           name: "Release"
           command: |
