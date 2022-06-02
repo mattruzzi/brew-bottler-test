@@ -60,8 +60,10 @@ jobs:
             brew update --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
-          name: "Update homebrew"
-          command: brew test-bot --only-formulae --testing-formulae m4
+          name: "Run test-bot"
+          command: | 
+            eval "$(homebrew/bin/brew shellenv)"
+            brew test-bot --only-formulae --testing-formulae m4
       - run:
           name: "Bottle << pipeline.parameters.formula >>"
           command: |
