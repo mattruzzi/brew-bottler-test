@@ -58,6 +58,7 @@ jobs:
           command: |
             sudo curl -L "https://github.com/whalebrew/whalebrew/releases/latest/download/whalebrew-Linux-arm64" -o /usr/local/bin/whalebrew; sudo chmod +x /usr/local/bin/whalebrew
             sudo /usr/local/bin/whalebrew install quay.io/skopeo/stable:latest
+            sudo ln -s  /usr/local/bin/stable /usr/local/bin/skopeo
       - run:
           name: "Update homebrew"
           command: |
