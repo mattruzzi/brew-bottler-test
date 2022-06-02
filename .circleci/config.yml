@@ -72,7 +72,7 @@ jobs:
           target: master
           title: zlib
           description: zlib
-          file-path: "/tmp/bottles"
+          file-path: "/tmp/bottles/"
           draft: true 
           pre-release: false 
 
