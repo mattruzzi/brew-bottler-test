@@ -70,7 +70,7 @@ jobs:
           command: |
             eval "$(homebrew/bin/brew shellenv)"
             brew install ghr
-            ghr --token $GITHUB_TOKEN --username mattruzzi --repository bottle-release-test --name "zlib" v0.0.0-zlib-test *bottle*
+            ghr --token $GITHUB_TOKEN --username mattruzzi --repository bottle-release-test v0.0.0-zlib-test2 *bottle*
       - github-release/create:
           user: mattruzzi
           repository: bottle-release-test
