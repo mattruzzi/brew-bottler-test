@@ -63,7 +63,7 @@ jobs:
           name: "Run test-bot"
           command: | 
             eval "$(homebrew/bin/brew shellenv)"
-            brew test-bot --only-formulae --testing-formulae m4
+            brew test-bot --only-formulae --testing-formulae << pipeline.parameters.formula >>
       - run:
           name: "Bottle << pipeline.parameters.formula >>"
           command: |
