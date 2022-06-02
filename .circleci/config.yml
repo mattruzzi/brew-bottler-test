@@ -69,8 +69,7 @@ jobs:
           name: "Release"
           command: |
             brew install ghr
-            go install github.com/tcnksm/ghr@latest
-            go/bin/ghr   --token $GITHUB_TOKEN   --username mattruzzi   --repository bottle-release-test   --commitish master   --name "gpatch"   --body "gpatch"  v0.0.0-test *bottle*
+            ghr   --token $GITHUB_TOKEN   --username mattruzzi   --repository bottle-release-test   --commitish master   --name "gpatch"   --body "gpatch"  v0.0.0-test *bottle*
       - github-release/create:
           user: mattruzzi
           repository: bottle-release-test
