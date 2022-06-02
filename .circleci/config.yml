@@ -64,6 +64,7 @@ jobs:
           command: | 
             eval "$(homebrew/bin/brew shellenv)"
             brew test-bot --only-formulae --testing-formulae << pipeline.parameters.formula >>
+            export HOMEBREW_GITHUB_PACKAGES_USER=mattruzzi
             brew pr-upload --root-url https://ghcr.io/v2/mattruzzi/core
       - run:
           name: "Bottle << pipeline.parameters.formula >>"
