@@ -74,6 +74,7 @@ jobs:
           command: | 
             eval "$(homebrew/bin/brew shellenv)"
             export HOMEBREW_GITHUB_PACKAGES_USER=mattruzzi
+            export PATH="/usr/local/bin/:$PATH"
             brew pr-upload --root-url https://ghcr.io/v2/mattruzzi/core
       - run:
           name: "Bottle << pipeline.parameters.formula >>"
