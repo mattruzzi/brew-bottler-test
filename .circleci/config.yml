@@ -57,7 +57,7 @@ jobs:
           name: "Install spokeo"
           command: |
             sudo curl -L "https://github.com/whalebrew/whalebrew/releases/latest/download/whalebrew-Linux-arm64" -o /usr/local/bin/whalebrew; sudo chmod +x /usr/local/bin/whalebrew
-            /usr/local/bin/whalebrew install quay.io/skopeo/stable:latest
+            sudo /usr/local/bin/whalebrew install quay.io/skopeo/stable:latest
       - run:
           name: "Update homebrew"
           command: |
