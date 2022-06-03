@@ -66,6 +66,11 @@ jobs:
             brew update --quiet || true
             # chmod -R go-w "$(brew --prefix)/share/zsh"
       - run:
+          name: "Set git user"
+          command: |
+            git config --global user.name BrewTestBot
+            git config --global user.email 1589480+BrewTestBot@users.noreply.github.com
+      - run:
           name: "Run test-bot"
           command: | 
             eval "$(homebrew/bin/brew shellenv)"
